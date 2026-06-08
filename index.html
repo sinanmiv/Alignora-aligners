@@ -1,0 +1,3985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alignora Aligners Calicut — Premium Clear Dental Aligners. Transform your smile with our expert orthodontists, AI treatment planning, and virtually invisible braces.">
+  <title>Alignora Aligners | Premium Dental Aligner Clinic Calicut</title>
+  
+  <!-- Fonts: Cormorant Garamond for Headings, DM Sans for UI/Body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================
+       1. DESIGN SYSTEM & CSS VARIABLES
+       ========================================== */
+    :root {
+      --bg-primary: #07101F;
+      --bg-secondary: #0C1A30;
+      --accent-gold: #C8A96E;
+      --accent-gold-light: #DFC08A;
+      --accent-green: #5DBF8A;
+      --text-white: #FFFFFF;
+      --text-muted: rgba(255, 255, 255, 0.52);
+      --border-gold: rgba(200, 169, 110, 0.15);
+      --border-green: rgba(93, 191, 138, 0.15);
+      --glass-bg: rgba(12, 26, 48, 0.65);
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+      --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: all 0.2s ease;
+    }
+
+    /* Green Theme override for Doctor Partnership */
+    .theme-green {
+      --bg-primary: #091a0f;
+      --bg-secondary: #0d2d1a;
+      --border-gold: rgba(93, 191, 138, 0.15);
+      --accent-gold: #5DBF8A;
+      --accent-gold-light: #84dcb0;
+    }
+
+    /* ==========================================
+       2. RESET & BASE STYLES
+       ========================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: #07101F;
+      color: var(--text-white);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+    }
+
+    body {
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      line-height: 1.62;
+      color: var(--text-muted);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-fast);
+    }
+
+    /* Premium Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07101F;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold);
+      border-radius: 4px;
+      border: 2px solid #07101F;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-gold-light);
+    }
+
+    /* ==========================================
+       3. INTERACTIVE CUSTOM CURSOR (DESKTOP)
+       ========================================== */
+    .cursor-dot, .cursor-outline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 10000;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .cursor-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent-gold);
+        opacity: 1;
+      }
+      .cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 1.5px solid var(--accent-gold);
+        opacity: 1;
+        transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                    width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+      }
+      .cursor-outline.hovered {
+        width: 55px;
+        height: 55px;
+        background-color: rgba(200, 169, 110, 0.15);
+        border-color: var(--accent-gold-light);
+      }
+      body.theme-green .cursor-dot {
+        background-color: var(--accent-green);
+      }
+      body.theme-green .cursor-outline {
+        border-color: var(--accent-green);
+      }
+      body.theme-green .cursor-outline.hovered {
+        background-color: rgba(93, 191, 138, 0.15);
+        border-color: var(--accent-green);
+      }
+      /* Hide default cursor on interactive items to give agency feel */
+      a, button, input, select, textarea, [role="button"], .faq-trigger, .tab-btn {
+        cursor: none;
+      }
+    }
+
+    /* ==========================================
+       4. ANIMATED LOADING SCREEN
+       ========================================== */
+    .loader-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #07101F;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .loader-content {
+      text-align: center;
+      max-width: 320px;
+      width: 90%;
+    }
+    .loader-logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1.5rem;
+    }
+    .loader-logo path {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+      animation: drawLogo 2.5s ease-out forwards;
+    }
+    .loader-title {
+      font-size: 2.2rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+    .loader-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--accent-gold-light);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+    }
+    .loader-bar-bg {
+      width: 100%;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.07);
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+    .loader-bar-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light));
+      animation: fillProgress 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes drawLogo {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes fillProgress {
+      to {
+        width: 100%;
+      }
+    }
+
+    /* ==========================================
+       5. SCROLL PROGRESS BAR
+       ========================================== */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light));
+      z-index: 10001;
+      transition: width 0.05s ease-out;
+    }
+    body.theme-green .scroll-progress-bar {
+      background: linear-gradient(90deg, var(--accent-green), #84dcb0);
+    }
+
+    /* ==========================================
+       6. STICKY NAV & TAB SWITCHER BAR
+       ========================================== */
+    .header-wrapper {
+      position: fixed;
+      top: 2px;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    
+    .sticky-nav {
+      height: 80px;
+      padding: 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      transition: var(--transition-smooth);
+    }
+
+    .sticky-nav.scrolled {
+      background-color: rgba(7, 16, 31, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    
+    body.theme-green .sticky-nav.scrolled {
+      background-color: rgba(9, 26, 15, 0.82);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+    }
+
+    .wordmark {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    .wordmark span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-white);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1.5px;
+      background-color: var(--accent-gold);
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .phone-link {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--accent-gold);
+    }
+
+    .phone-link:hover {
+      color: var(--accent-gold-light);
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.75rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+      background: var(--accent-gold);
+      color: #07101F;
+      border: 1px solid var(--accent-gold);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transition: 0.6s;
+      z-index: -1;
+    }
+
+    .btn-cta:hover::before {
+      left: 100%;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(200, 169, 110, 0.3);
+      border-color: var(--accent-gold-light);
+      background: var(--accent-gold-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-white);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-gold);
+      background: rgba(200, 169, 110, 0.08);
+      color: var(--accent-gold-light);
+      box-shadow: none;
+    }
+
+    /* FIXED TAB SWITCHER BAR */
+    .tab-switcher-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0.6rem 0;
+      background-color: rgba(7, 16, 31, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      transition: var(--transition-smooth);
+    }
+
+    .tab-switcher-container.sticky-tabs {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    body.theme-green .tab-switcher-container {
+      background-color: rgba(9, 26, 15, 0.6);
+    }
+
+    .tab-switcher {
+      position: relative;
+      display: flex;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 3px;
+      border-radius: 30px;
+      width: 500px;
+      max-width: 90%;
+    }
+
+    .tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.65rem 1rem;
+      border-radius: 25px;
+      z-index: 2;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease;
+    }
+
+    .tab-btn.active {
+      color: #07101F;
+    }
+
+    body.theme-green .tab-btn.active {
+      color: #091a0f;
+    }
+
+    .tab-slider {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 3px;
+      width: calc(33.33% - 4px);
+      background: var(--accent-gold);
+      border-radius: 25px;
+      z-index: 1;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Mobile Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--text-white);
+      transition: var(--transition-fast);
+    }
+
+    /* ==========================================
+       7. GLOBAL LAYOUTS & REVEALS
+       ========================================== */
+    .main-content {
+      margin-top: 140px; /* offset for sticky nav + tab bar */
+      flex: 1;
+    }
+
+    .page-section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .page-section.active {
+      display: block;
+      opacity: 1;
+    }
+
+    section {
+      padding: 7.5rem 4rem;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .section-header {
+      max-width: 650px;
+      margin-bottom: 4rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 1.15rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 50px;
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold-light);
+      background: rgba(200, 169, 110, 0.05);
+      backdrop-filter: blur(4px);
+      margin-bottom: 1.25rem;
+    }
+
+    body.theme-green .badge {
+      border-color: var(--accent-green);
+      color: var(--accent-green);
+      background: rgba(93, 191, 138, 0.05);
+    }
+
+    .section-title {
+      font-size: 3.2rem;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title span {
+      font-style: italic;
+      color: var(--accent-gold);
+    }
+
+    body.theme-green .section-title span {
+      color: var(--accent-green);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Scroll Reveal System */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+
+    /* Glassmorphism Cards */
+    .glass-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 2.5rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+      transition: var(--transition-smooth);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(200, 169, 110, 0.3);
+      box-shadow: 0 20px 45px rgba(200, 169, 110, 0.08);
+    }
+
+    body.theme-green .glass-card {
+      border-color: var(--border-green);
+    }
+    
+    body.theme-green .glass-card:hover {
+      border-color: rgba(93, 191, 138, 0.3);
+      box-shadow: 0 20px 45px rgba(93, 191, 138, 0.08);
+    }
+
+    /* Conic Rotating Card Style */
+    .conic-card {
+      position: relative;
+      padding: 2px;
+      border-radius: 20px;
+      background: transparent;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.4);
+    }
+
+    .conic-card::before {
+      content: '';
+      position: absolute;
+      width: 140%;
+      height: 140%;
+      background: conic-gradient(
+        transparent 0deg,
+        rgba(200, 169, 110, 0.05) 90deg,
+        rgba(200, 169, 110, 0.35) 180deg,
+        rgba(223, 192, 138, 0.7) 240deg,
+        rgba(200, 169, 110, 0.35) 270deg,
+        transparent 360deg
+      );
+      animation: rotateConic 8s linear infinite;
+      z-index: 1;
+    }
+
+    .conic-card-content {
+      position: relative;
+      z-index: 2;
+      background: #0C1A30;
+      border-radius: 19px;
+      width: 100%;
+      height: 100%;
+      padding: 3rem 2.5rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    @keyframes rotateConic {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ==========================================
+       8. PAGE 1: HOME SECTION STYLING
+       ========================================== */
+    /* Hero */
+    .hero-section {
+      min-height: calc(100vh - 140px);
+      display: flex;
+      align-items: center;
+      padding: 4rem;
+      overflow: hidden;
+      background: radial-gradient(circle at 60% 40%, rgba(20, 36, 63, 0.6) 0%, rgba(7, 16, 31, 1) 75%);
+    }
+
+    #particles-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .grid-lines-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 60px 60px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--accent-gold-light);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-title {
+      font-size: 4.8rem;
+      line-height: 1.05;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      color: var(--accent-gold);
+    }
+
+    .hero-body {
+      font-size: 1.15rem;
+      margin-bottom: 3rem;
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-meta-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* Floating Conic Aligner Card details */
+    .floating-card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .rotating-logo-container {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      animation: gentleFloat 6s ease-in-out infinite alternate;
+    }
+
+    .rotating-logo-svg {
+      width: 100%;
+      height: 100%;
+      animation: rotateLogoSvg 25s linear infinite;
+    }
+
+    @keyframes gentleFloat {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-12px); }
+    }
+    @keyframes rotateLogoSvg {
+      100% { transform: rotate(360deg); }
+    }
+
+    .float-card-stat {
+      font-size: 2.2rem;
+      font-family: var(--font-display);
+      color: var(--accent-gold-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .float-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin: 1rem 0 1.5rem 0;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      text-transform: uppercase;
+    }
+
+    .float-card-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* Stats Bar */
+    .stats-bar-section {
+      background-color: var(--bg-primary);
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      position: relative;
+    }
+
+    .stat-col {
+      padding: 1rem 2rem;
+      position: relative;
+    }
+
+    .stat-col:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 15%;
+      right: 0;
+      width: 1px;
+      height: 70%;
+      background: linear-gradient(180deg, transparent, var(--accent-gold), transparent);
+    }
+
+    .stat-num {
+      font-size: 3.5rem;
+      font-family: var(--font-display);
+      color: var(--accent-gold-light);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    /* How It Works */
+    .how-it-works-section {
+      background-color: var(--bg-secondary);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      position: relative;
+      margin-top: 4rem;
+    }
+
+    .steps-connector-line {
+      position: absolute;
+      top: 50px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background-image: linear-gradient(90deg, transparent, var(--accent-gold) 15%, var(--accent-gold) 85%, transparent);
+      opacity: 0.25;
+      z-index: 1;
+    }
+
+    .step-card {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem auto;
+      position: relative;
+      transition: var(--transition-smooth);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .step-card:hover .step-circle {
+      transform: translateY(-8px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 15px 30px rgba(200, 169, 110, 0.25);
+    }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--accent-gold-light);
+      font-weight: 700;
+      position: absolute;
+      top: -8px;
+      background: var(--bg-primary);
+      padding: 0 0.5rem;
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+    }
+
+    .step-icon-svg {
+      width: 32px;
+      height: 32px;
+      fill: none;
+      stroke: var(--accent-gold-light);
+      stroke-width: 1.5;
+    }
+
+    .step-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Why Alignora Grid */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .why-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-gold);
+      transition: var(--transition-smooth);
+    }
+
+    .why-card:hover::after {
+      left: 0;
+      width: 100%;
+    }
+
+    .why-card-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.5rem;
+    }
+
+    .why-card-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: var(--accent-gold);
+      stroke-width: 1.5;
+    }
+
+    .why-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Before & After Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .ba-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      transition: var(--transition-smooth);
+    }
+
+    .ba-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(200, 169, 110, 0.35);
+    }
+
+    .ba-split-container {
+      position: relative;
+      height: 240px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .ba-panel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .ba-panel-before {
+      background-color: #050E1A;
+    }
+
+    .ba-panel-after {
+      background-color: #091C12;
+    }
+
+    .ba-badge {
+      position: absolute;
+      top: 1rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      color: var(--text-white);
+    }
+
+    .ba-badge-before {
+      left: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .ba-badge-after {
+      right: 1rem;
+      background-color: rgba(93, 191, 138, 0.15);
+      border: 1px solid rgba(93, 191, 138, 0.3);
+      color: var(--accent-green);
+    }
+
+    .vs-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--accent-gold);
+      color: #07101F;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: bold;
+      font-style: italic;
+      font-size: 0.95rem;
+      box-shadow: 0 0 15px rgba(200, 169, 110, 0.4);
+      z-index: 10;
+    }
+
+    .ba-card-info {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ba-patient-name {
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    .ba-patient-plan {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold-light);
+      font-weight: 600;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      position: relative;
+    }
+
+    .pricing-card.premium-elevated {
+      transform: scale(1.03);
+      border-color: var(--accent-gold);
+      box-shadow: 0 20px 45px rgba(200, 169, 110, 0.15);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -15px;
+      right: 25px;
+      background: var(--accent-gold);
+      color: #07101F;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(200, 169, 110, 0.3);
+    }
+
+    .price-title {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .price-value {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-style: italic;
+      color: var(--accent-gold-light);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .price-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+    }
+
+    .pricing-divider {
+      width: 100%;
+      height: 1px;
+      background-color: var(--border-gold);
+      margin-bottom: 2rem;
+    }
+
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .features-list li svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: var(--accent-gold);
+      stroke-width: 2;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .stars-row {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 1.25rem;
+    }
+
+    .star-svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--accent-gold);
+    }
+
+    body.theme-green .star-svg {
+      fill: var(--accent-green);
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(200, 169, 110, 0.15);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+    }
+
+    body.theme-green .avatar {
+      background: rgba(93, 191, 138, 0.15);
+      border-color: var(--accent-green);
+      color: var(--accent-green);
+    }
+
+    .author-name {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .author-plan {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Press Strip */
+    .press-section {
+      background-color: var(--bg-secondary);
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .press-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+
+    .press-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .press-logos-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      max-width: 800px;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+
+    .press-logo-text {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.25);
+      letter-spacing: 0.05em;
+      transition: var(--transition-fast);
+    }
+
+    .press-logo-text:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Doctors Section */
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .doctor-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doctor-img-placeholder {
+      position: relative;
+      height: 320px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #050e1a 0%, #0c1a30 100%);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .doctor-img-placeholder::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, transparent 40%, rgba(7, 16, 31, 0.4) 100%);
+    }
+
+    .doctor-dashed-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 2px dashed var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      z-index: 2;
+    }
+
+    .doctor-icon-svg {
+      width: 44px;
+      height: 44px;
+      fill: none;
+      stroke: var(--accent-gold-light);
+      stroke-width: 1.5;
+    }
+
+    .doctor-placeholder-text {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold-light);
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .doctor-name {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .doctor-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-gold-light);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Final CTA Banner */
+    .final-cta-section {
+      padding: 0;
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+      padding: 7.5rem 4rem;
+      text-align: center;
+      color: #07101F;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-banner .section-title {
+      color: #07101F;
+      margin-bottom: 1rem;
+    }
+
+    .cta-banner p {
+      color: rgba(7, 16, 31, 0.7);
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 3rem auto;
+      font-weight: 500;
+    }
+
+    .cta-banner p span {
+      color: #07101F;
+      font-weight: 700;
+    }
+
+    .btn-cta-dark {
+      background: #07101F;
+      color: var(--accent-gold-light);
+      border-color: #07101F;
+      font-size: 0.95rem;
+      padding: 1rem 2.5rem;
+      box-shadow: 0 10px 30px rgba(7, 16, 31, 0.25);
+    }
+
+    .btn-cta-dark:hover {
+      background: #0c1a30;
+      border-color: #0c1a30;
+      color: var(--text-white);
+      box-shadow: 0 15px 35px rgba(7, 16, 31, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #040A14;
+      padding: 6rem 4rem 3rem 4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr 0.9fr 0.9fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+    }
+
+    .footer-col-brand p {
+      margin: 1.5rem 0 2rem 0;
+      max-width: 300px;
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+    }
+
+    .social-icon:hover {
+      color: var(--accent-gold-light);
+      border-color: var(--accent-gold);
+      background: rgba(200, 169, 110, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .social-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .footer-h4 {
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+      color: var(--text-white);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-link {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .footer-link:hover {
+      color: var(--accent-gold-light);
+      padding-left: 5px;
+    }
+
+    .footer-contact-item {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .footer-phone-link {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accent-gold-light);
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .footer-phone-link:hover {
+      color: var(--text-white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    /* ==========================================
+       9. PAGE 2: PATIENT PORTAL STYLING
+       ========================================== */
+    /* Timeline */
+    .timeline-container {
+      position: relative;
+      max-width: 800px;
+      margin: 4rem auto 0 auto;
+      padding-left: 3.5rem;
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 17px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--accent-gold) 0%, rgba(200, 169, 110, 0.1) 100%);
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 4.5rem;
+    }
+
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      top: 0;
+      left: -3.5rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 2px solid var(--accent-gold);
+      color: var(--accent-gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      z-index: 2;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: var(--transition-smooth);
+    }
+
+    .timeline-step:hover .timeline-marker {
+      background-color: var(--accent-gold);
+      color: #07101F;
+      box-shadow: 0 0 15px rgba(200, 169, 110, 0.5);
+      transform: scale(1.1);
+    }
+
+    .timeline-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 4rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 600px;
+    }
+
+    .comp-table th, .comp-table td {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .comp-table th {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      background-color: var(--bg-secondary);
+      color: var(--text-white);
+    }
+
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comp-table td:first-child, .comp-table th:first-child {
+      font-weight: 500;
+      color: var(--text-white);
+    }
+
+    /* Highlight Alignora Column */
+    .comp-table th:nth-child(2), .comp-table td:nth-child(2) {
+      background-color: rgba(200, 169, 110, 0.05);
+      border-left: 1px solid var(--border-gold);
+      border-right: 1px solid var(--border-gold);
+    }
+
+    .comp-table th:nth-child(2) {
+      border-top: 2px solid var(--accent-gold);
+      background-color: rgba(200, 169, 110, 0.08);
+      color: var(--accent-gold-light);
+      font-weight: 600;
+    }
+
+    .symbol-yes {
+      color: var(--accent-green);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .symbol-no {
+      color: #E06C75;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .symbol-maybe {
+      color: #E5C07B;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* FAQ Accordion */
+    .faq-container {
+      max-width: 800px;
+      margin: 4rem auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .faq-item {
+      border-radius: 8px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .faq-item:hover {
+      border-color: rgba(200, 169, 110, 0.3);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      background: none;
+      border: none;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-white);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    .faq-icon-wrapper {
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
+
+    .faq-icon-wrapper::before, .faq-icon-wrapper::after {
+      content: '';
+      position: absolute;
+      background-color: var(--accent-gold-light);
+      transition: var(--transition-fast);
+    }
+
+    /* horizontal line */
+    .faq-icon-wrapper::before {
+      top: 11px;
+      left: 4px;
+      width: 16px;
+      height: 2px;
+    }
+
+    /* vertical line */
+    .faq-icon-wrapper::after {
+      top: 4px;
+      left: 11px;
+      width: 2px;
+      height: 16px;
+    }
+
+    .faq-item.open .faq-icon-wrapper::after {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+
+    .faq-item.open .faq-icon-wrapper::before {
+      transform: rotate(180deg);
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-content-inner {
+      padding: 0 2rem 1.75rem 2rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Inline Booking Form */
+    .form-section {
+      background-color: var(--bg-secondary);
+    }
+
+    .form-wrapper {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-control label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-gold-light);
+      font-weight: 600;
+    }
+
+    body.theme-green .form-control label {
+      color: var(--accent-green);
+    }
+
+    .form-input, .form-select {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-gold);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      color: var(--text-white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: var(--transition-fast);
+    }
+
+    .form-input:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 0 10px rgba(200, 169, 110, 0.15);
+    }
+
+    body.theme-green .form-input:focus, body.theme-green .form-select:focus {
+      border-color: var(--accent-green);
+      box-shadow: 0 0 10px rgba(93, 191, 138, 0.15);
+    }
+
+    .form-select option {
+      background-color: var(--bg-secondary);
+      color: var(--text-white);
+    }
+
+    .form-button-container {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .form-button-container .btn-cta {
+      width: 100%;
+      padding: 1rem 2rem;
+      font-size: 0.95rem;
+    }
+
+    .form-phone-sub {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .form-phone-sub a {
+      color: var(--accent-gold-light);
+      font-weight: 600;
+    }
+
+    body.theme-green .form-phone-sub a {
+      color: var(--accent-green);
+    }
+
+    .form-message {
+      padding: 1.25rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      display: none;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .form-message.success {
+      background-color: rgba(93, 191, 138, 0.15);
+      border: 1px solid var(--accent-green);
+      color: #a4f0c5;
+      display: block;
+    }
+
+    /* ==========================================
+       10. PAGE 3: DOCTOR PARTNERSHIP STYLING
+       ========================================== */
+    .theme-green .cta-banner {
+      background: linear-gradient(135deg, var(--accent-green) 0%, #84dcb0 100%);
+    }
+
+    .onboarding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .onboard-card {
+      text-align: center;
+    }
+
+    .onboard-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 2px solid var(--accent-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem auto;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--accent-green);
+      transition: var(--transition-smooth);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .onboard-card:hover .onboard-circle {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(93, 191, 138, 0.3);
+      background-color: var(--accent-green);
+      color: #091a0f;
+    }
+
+    .onboard-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ==========================================
+       11. FLOATING WHATSAPP BUTTON
+       ========================================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 25px rgba(37, 211, 102, 0.45);
+      z-index: 999;
+      animation: whatsappBounce 2s infinite alternate;
+      transition: var(--transition-fast);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-icon {
+      width: 32px;
+      height: 32px;
+      fill: #FFFFFF;
+    }
+
+    @keyframes whatsappBounce {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
+    }
+
+    /* ==========================================
+       12. RESPONSIVE MEDIA QUERIES
+       ========================================== */
+    @media (max-width: 1200px) {
+      .hero-title { font-size: 4rem; }
+      .section-title { font-size: 2.8rem; }
+    }
+
+    @media (max-width: 992px) {
+      section { padding: 5.5rem 2.5rem; }
+      .sticky-nav { padding: 0 2.5rem; }
+      
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        text-align: center;
+      }
+      .hero-body { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .stat-col:nth-child(2)::after { display: none; }
+      
+      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+      .steps-connector-line { display: none; }
+      
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      
+      .gallery-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+      
+      .pricing-grid { grid-template-columns: 1fr; max-width: 500px; }
+      .pricing-card.premium-elevated { transform: scale(1); }
+      
+      .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+      
+      .doctors-grid { grid-template-columns: 1fr; max-width: 480px; }
+      
+      .onboarding-grid { grid-template-columns: 1fr; gap: 3rem; }
+      
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      /* Mobile Menu Toggle & Links */
+      .menu-toggle { display: flex; }
+      
+      .nav-links {
+        display: none; /* simple responsive dropdown can be toggled by JS */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(7, 16, 31, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 2rem;
+        gap: 1.5rem;
+        z-index: 998;
+      }
+      
+      body.theme-green .nav-links {
+        background-color: rgba(9, 26, 15, 0.95);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-actions { display: none; } /* hide actions on small screens, can merge in dropdown */
+
+      .hero-title { font-size: 3rem; }
+      .hero-section { padding: 2.5rem 1.5rem; }
+      
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-col::after { display: none !important; }
+      
+      .steps-grid { grid-template-columns: 1fr; }
+      
+      .why-grid { grid-template-columns: 1fr; }
+      
+      .form-group-row { grid-template-columns: 1fr; gap: 1.5rem; }
+      
+      .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-bottom { text-align: center; justify-content: center; }
+      
+      footer { padding: 4rem 1.5rem 2rem 1.5rem; }
+      
+      .whatsapp-float { bottom: 1.5rem; right: 1.5rem; width: 50px; height: 50px; }
+      .whatsapp-icon { width: 26px; height: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       A. GLOBAL COMPONENT: LOADER SCREEN
+       ========================================== -->
+  <div class="loader-screen" id="loader-screen">
+    <div class="loader-content">
+      <!-- SVG Logo Mark drawing animation -->
+      <svg class="loader-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20,65 C20,35 33,20 50,20 C67,20 80,35 80,65 C70,60 62,45 50,45 C38,45 30,60 20,65 Z" stroke="#DFC08A" stroke-width="3" stroke-linecap="round"/>
+        <path d="M50,28 C46,24 40,24 38,28 C36,32 36,42 50,56 C64,42 64,32 62,28 C60,24 54,24 50,28 Z" stroke="#C8A96E" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="loader-title">ALIGNORA</div>
+      <div class="loader-tagline">Smile Smarter. Live Brighter.</div>
+      <div class="loader-bar-bg">
+        <div class="loader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       B. GLOBAL COMPONENT: SCROLL PROGRESS BAR
+       ========================================== -->
+  <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+
+  <!-- ==========================================
+       C. GLOBAL COMPONENT: STICKY NAVIGATION BAR
+       ========================================== -->
+  <header class="header-wrapper">
+    <nav class="sticky-nav" id="sticky-nav">
+      <a href="#" class="logo-container cursor-trigger" data-nav="home">
+        <!-- Brand SVG Logo Mark -->
+        <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20,65 C20,35 33,20 50,20 C67,20 80,35 80,65 C70,60 62,45 50,45 C38,45 30,60 20,65 Z" stroke="var(--accent-gold-light)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M50,28 C46,24 40,24 38,28 C36,32 36,42 50,56 C64,42 64,32 62,28 C60,24 54,24 50,28 Z" fill="var(--accent-gold)" opacity="0.9"/>
+        </svg>
+        <span class="wordmark">Align<span>ora</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="nav-links" id="nav-links">
+        <a href="#home" class="nav-link cursor-trigger active" data-nav="home">Home</a>
+        <a href="#why-alignora" class="nav-link cursor-trigger" data-nav="home" data-scroll="why-alignora">Why Alignora</a>
+        <a href="#page-patient" class="nav-link cursor-trigger" data-nav="patient">For Patients</a>
+        <a href="#page-doctor" class="nav-link cursor-trigger" data-nav="doctor">For Doctors</a>
+        <a href="#about-team" class="nav-link cursor-trigger" data-nav="home" data-scroll="about-team">About Us</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="tel:+916282256557" class="phone-link cursor-trigger">+91 6282 256 557</a>
+        <button class="btn-cta cursor-trigger" id="nav-cta-btn">Book Free Scan</button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle cursor-trigger" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- ==========================================
+         D. GLOBAL COMPONENT: FIXED TAB SWITCHER BAR
+         ========================================== -->
+    <div class="tab-switcher-container" id="tab-switcher-container">
+      <div class="tab-switcher">
+        <button class="tab-btn active cursor-trigger" data-page="home">Home</button>
+        <button class="tab-btn cursor-trigger" data-page="patient">Patient Portal</button>
+        <button class="tab-btn cursor-trigger" data-page="doctor">Doctor Partnership</button>
+        <div class="tab-slider" id="tab-slider"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       E. MAIN PAGE SECTIONS CONTAINER
+       ========================================== -->
+  <main class="main-content">
+
+    <!-- ==========================================
+         PAGE 1: HOME PAGE
+         ========================================== -->
+    <section id="page-home" class="page-section active">
+      
+      <!-- HERO -->
+      <div class="hero-section">
+        <!-- Floating Canvas Particles -->
+        <canvas id="particles-canvas"></canvas>
+        <div class="grid-lines-bg"></div>
+        
+        <div class="container hero-grid">
+          <div class="hero-left reveal">
+            <span class="badge">Calicut's Premier Aligner Clinic · Est. 2025</span>
+            <h1 class="hero-title">Your Perfect Smile, <br><span>Crafted with Care</span></h1>
+            <div class="hero-tagline">— Smile Smarter. Live Brighter. —</div>
+            <p class="hero-body">
+              At Alignora, we combine state-of-the-art AI design technology with clinical orthodontic expertise to deliver comfortable, invisible, and life-changing dental aligners right here in Kozhikode.
+            </p>
+            <div class="hero-actions">
+              <button class="btn-cta btn-book-consult cursor-trigger">Book Free Consultation</button>
+              <button class="btn-cta btn-outline cursor-trigger" id="hero-results-btn">See Patient Results</button>
+            </div>
+            <div class="hero-meta-text">
+              Call us: <strong>+91 6282 256 557</strong> · Calicut, Kerala, India
+            </div>
+          </div>
+
+          <div class="hero-right reveal reveal-delay-2">
+            <!-- Glassmorphism card with slow rotating conic border -->
+            <div class="conic-card">
+              <div class="conic-card-content floating-card-body">
+                <div class="rotating-logo-container">
+                  <svg class="rotating-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,65 C20,35 33,20 50,20 C67,20 80,35 80,65 C70,60 62,45 50,45 C38,45 30,60 20,65 Z" stroke="var(--accent-gold)" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M50,28 C46,24 40,24 38,28 C36,32 36,42 50,56 C64,42 64,32 62,28 C60,24 54,24 50,28 Z" fill="var(--accent-gold-light)" opacity="0.85"/>
+                  </svg>
+                </div>
+                <div class="float-card-stat" data-target="200">0+</div>
+                <p style="margin-bottom: 1rem; color: #FFFFFF; font-weight: 500;">Smiles Transformed</p>
+                <div class="float-card-tags">
+                  <span class="tag-pill">AI-Planned</span>
+                  <span class="tag-pill">Invisible</span>
+                  <span class="tag-pill">Pain-Free</span>
+                  <span class="tag-pill">Removable</span>
+                </div>
+                <div class="float-card-sub">Founded 2025 · Calicut, Kerala</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATS BAR -->
+      <div class="stats-bar-section">
+        <div class="container stats-grid reveal">
+          <div class="stat-col">
+            <div class="stat-num" data-target="200">0+</div>
+            <div class="stat-label">Smiles Transformed</div>
+          </div>
+          <div class="stat-col">
+            <div class="stat-num" data-target="98">0%</div>
+            <div class="stat-label">Patient Satisfaction</div>
+          </div>
+          <div class="stat-col">
+            <div class="stat-num" data-target="50">0+</div>
+            <div class="stat-label">Partner Clinics</div>
+          </div>
+          <div class="stat-col">
+            <div class="stat-num" data-target="6">0 mo</div>
+            <div class="stat-label">Avg. Treatment</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOW IT WORKS -->
+      <section class="how-it-works-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="badge">The Process</span>
+            <h2 class="section-title">How It <span>Works</span></h2>
+            <p class="section-subtitle">Achieve your dream smile with our structured, orthodontic-led clear aligner system.</p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="steps-connector-line"></div>
+            
+            <div class="step-card reveal">
+              <div class="step-circle">
+                <span class="step-num">01</span>
+                <svg class="step-icon-svg" viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg>
+              </div>
+              <h3 class="step-title">3D Smile Scan</h3>
+              <p>A fast, digital 3D scan of your teeth is captured at one of our partner clinics in Kerala to map your current anatomy.</p>
+            </div>
+
+            <div class="step-card reveal reveal-delay-1">
+              <div class="step-circle">
+                <span class="step-num">02</span>
+                <svg class="step-icon-svg" viewBox="0 0 24 24"><path d="M2 12h20M12 2v20M12 12L4 4M12 12l8 8"/></svg>
+              </div>
+              <h3 class="step-title">AI Treatment Plan</h3>
+              <p>Our specialists design a customized orthodontic model using state-of-the-art AI algorithms for predictable movement.</p>
+            </div>
+
+            <div class="step-card reveal reveal-delay-2">
+              <div class="step-circle">
+                <span class="step-num">03</span>
+                <svg class="step-icon-svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <h3 class="step-title">Custom Aligners</h3>
+              <p>Your transparent aligner sets are medical-grade 3D printed and shipped directly, monitored weekly via our application.</p>
+            </div>
+
+            <div class="step-card reveal reveal-delay-3">
+              <div class="step-circle">
+                <span class="step-num">04</span>
+                <svg class="step-icon-svg" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <h3 class="step-title">Reveal Your Smile</h3>
+              <p>Unveil your straight, perfect smile. Finish your journey with free retainers to lock in your beautiful final outcome.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY ALIGNORA -->
+      <section class="why-alignora-section" id="why-alignora">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="badge">The Advantage</span>
+            <h2 class="section-title">Why <span>Alignora Aligners</span></h2>
+            <p class="section-subtitle">Experience a new standard of dental care tailored for modern lifestyles.</p>
+          </div>
+
+          <div class="why-grid">
+            <div class="glass-card why-card reveal">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h3>Virtually Invisible</h3>
+              <p>Constructed from ultra-clear medical thermoplastic. Straighten your teeth without anyone noticing.</p>
+            </div>
+
+            <div class="glass-card why-card reveal reveal-delay-1">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <h3>AI Treatment Planning</h3>
+              <p>Predictable movements planned with digital smile simulations so you see results before starting.</p>
+            </div>
+
+            <div class="glass-card why-card reveal reveal-delay-2">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3>Virtually Pain-Free</h3>
+              <p>Micro-movements designed in sequential sets minimize forces, reducing dental discomfort.</p>
+            </div>
+
+            <div class="glass-card why-card reveal">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              </div>
+              <h3>Fully Removable</h3>
+              <p>Easily remove your trays to eat your favorite Kerala dishes, brush, and floss with zero hassle.</p>
+            </div>
+
+            <div class="glass-card why-card reveal reveal-delay-1">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3>Doctor Monitored</h3>
+              <p>Supervised directly by clinical specialist orthodontists at every milestone for complete safety.</p>
+            </div>
+
+            <div class="glass-card why-card reveal reveal-delay-2">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3>Transparent Pricing</h3>
+              <p>No hidden fees. Free scans, clear payment plans, and interest-free EMI schemes available.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BEFORE & AFTER GALLERY -->
+      <section class="gallery-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="badge">Success Stories</span>
+            <h2 class="section-title">Patient <span>Transformations</span></h2>
+            <p class="section-subtitle">Real results from real Kerala patients who chose the smarter way to align their teeth.</p>
+          </div>
+
+          <div class="gallery-grid">
+            <!-- Patient 1 -->
+            <div class="ba-card reveal">
+              <div class="ba-split-container">
+                <div class="ba-panel ba-panel-before">
+                  <span class="ba-badge ba-badge-before">Before</span>
+                  <!-- Stylized vector teeth showing crooked gaps -->
+                  <svg width="180" height="70" viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,60 C50,45 130,45 170,60" stroke="rgba(255,255,255,0.08)" stroke-width="12" stroke-linecap="round"/>
+                    <!-- Crooked Incisors -->
+                    <rect x="73" y="16" width="14" height="25" rx="3" fill="#808B96" transform="rotate(-7 80 28)"/>
+                    <rect x="91" y="15" width="14" height="25" rx="3" fill="#95A5A6" transform="rotate(9 98 27)"/>
+                    <rect x="58" y="19" width="12" height="22" rx="3" fill="#7F8C8D" transform="rotate(-15 64 30)"/>
+                    <rect x="108" y="18" width="12" height="22" rx="3" fill="#707B7C" transform="rotate(12 114 29)"/>
+                    <path d="M43,23 C43,19 54,19 54,23 L52,40 C52,40 43,40 43,40 Z" fill="#5D6D7E" transform="rotate(-20 48 31)"/>
+                    <path d="M124,22 C124,18 135,18 135,22 L135,39 C135,39 124,39 124,39 Z" fill="#5D6D7E" transform="rotate(15 129 30)"/>
+                  </svg>
+                </div>
+                <div class="vs-circle">VS</div>
+                <div class="ba-panel ba-panel-after">
+                  <span class="ba-badge ba-badge-after">After</span>
+                  <!-- Stylized vector teeth showing straight alignment -->
+                  <svg width="180" height="70" viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,60 C50,45 130,45 170,60" stroke="rgba(93,191,138,0.12)" stroke-width="12" stroke-linecap="round"/>
+                    <!-- Straight Aligned Incisors -->
+                    <rect x="74" y="13" width="15" height="26" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="90" y="13" width="15" height="26" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="60" y="15" width="13" height="24" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="106" y="15" width="13" height="24" rx="3" fill="var(--accent-gold-light)"/>
+                    <path d="M46,18 C46,15 57,15 57,18 L57,38 C57,38 46,38 46,38 Z" fill="var(--accent-gold)"/>
+                    <path d="M120,18 C120,15 131,15 131,18 L131,38 C131,38 120,38 120,38 Z" fill="var(--accent-gold)"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="ba-card-info">
+                <div class="ba-patient-name">Meenakshi R. <span style="font-size:0.85rem; color:var(--text-muted);">· Kozhikode</span></div>
+                <div class="ba-patient-plan">Premium Plan</div>
+              </div>
+            </div>
+
+            <!-- Patient 2 -->
+            <div class="ba-card reveal reveal-delay-1">
+              <div class="ba-split-container">
+                <div class="ba-panel ba-panel-before">
+                  <span class="ba-badge ba-badge-before">Before</span>
+                  <svg width="180" height="70" viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,60 C50,45 130,45 170,60" stroke="rgba(255,255,255,0.08)" stroke-width="12" stroke-linecap="round"/>
+                    <!-- Overlapping Front Teeth -->
+                    <rect x="76" y="14" width="14" height="25" rx="3" fill="#808B96" transform="rotate(12 83 26)"/>
+                    <rect x="88" y="17" width="14" height="25" rx="3" fill="#95A5A6" transform="rotate(-6 95 29)"/>
+                    <rect x="59" y="18" width="12" height="22" rx="3" fill="#7F8C8D" transform="rotate(5 65 29)"/>
+                    <rect x="105" y="18" width="12" height="22" rx="3" fill="#707B7C" transform="rotate(-12 111 29)"/>
+                    <path d="M45,21 C45,17 56,17 56,21 L54,38 C54,38 45,38 45,38 Z" fill="#5D6D7E" transform="rotate(8 50 29)"/>
+                    <path d="M120,21 C120,17 131,17 131,21 L131,38 C131,38 120,38 120,38 Z" fill="#5D6D7E" transform="rotate(-8 125 29)"/>
+                  </svg>
+                </div>
+                <div class="vs-circle">VS</div>
+                <div class="ba-panel ba-panel-after">
+                  <span class="ba-badge ba-badge-after">After</span>
+                  <svg width="180" height="70" viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,60 C50,45 130,45 170,60" stroke="rgba(93,191,138,0.12)" stroke-width="12" stroke-linecap="round"/>
+                    <rect x="74" y="13" width="15" height="26" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="90" y="13" width="15" height="26" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="60" y="15" width="13" height="24" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="106" y="15" width="13" height="24" rx="3" fill="var(--accent-gold-light)"/>
+                    <path d="M46,18 C46,15 57,15 57,18 L57,38 C57,38 46,38 46,38 Z" fill="var(--accent-gold)"/>
+                    <path d="M120,18 C120,15 131,15 131,18 L131,38 C131,38 120,38 120,38 Z" fill="var(--accent-gold)"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="ba-card-info">
+                <div class="ba-patient-name">Arjun Krishnan <span style="font-size:0.85rem; color:var(--text-muted);">· Malappuram</span></div>
+                <div class="ba-patient-plan">Lite Plan</div>
+              </div>
+            </div>
+
+            <!-- Patient 3 -->
+            <div class="ba-card reveal">
+              <div class="ba-split-container">
+                <div class="ba-panel ba-panel-before">
+                  <span class="ba-badge ba-badge-before">Before</span>
+                  <svg width="180" height="70" viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,60 C50,45 130,45 170,60" stroke="rgba(255,255,255,0.08)" stroke-width="12" stroke-linecap="round"/>
+                    <!-- Crowded overlapping lateral -->
+                    <rect x="73" y="14" width="14" height="25" rx="3" fill="#808B96" transform="rotate(-4 80 26)"/>
+                    <rect x="89" y="13" width="14" height="25" rx="3" fill="#95A5A6" transform="rotate(3 96 25)"/>
+                    <rect x="63" y="22" width="12" height="22" rx="3" fill="#7F8C8D" transform="rotate(22 69 33)"/>
+                    <rect x="103" y="16" width="12" height="22" rx="3" fill="#707B7C" transform="rotate(-6 109 27)"/>
+                    <path d="M46,20 C46,16 57,16 57,20 L55,37 C55,37 46,37 46,37 Z" fill="#5D6D7E" transform="rotate(-12 51 28)"/>
+                    <path d="M120,20 C120,16 131,16 131,20 L131,37 C131,37 120,37 120,37 Z" fill="#5D6D7E" transform="rotate(10 125 28)"/>
+                  </svg>
+                </div>
+                <div class="vs-circle">VS</div>
+                <div class="ba-panel ba-panel-after">
+                  <span class="ba-badge ba-badge-after">After</span>
+                  <svg width="180" height="70" viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,60 C50,45 130,45 170,60" stroke="rgba(93,191,138,0.12)" stroke-width="12" stroke-linecap="round"/>
+                    <rect x="74" y="13" width="15" height="26" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="90" y="13" width="15" height="26" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="60" y="15" width="13" height="24" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="106" y="15" width="13" height="24" rx="3" fill="var(--accent-gold-light)"/>
+                    <path d="M46,18 C46,15 57,15 57,18 L57,38 C57,38 46,38 46,38 Z" fill="var(--accent-gold)"/>
+                    <path d="M120,18 C120,15 131,15 131,18 L131,38 C131,38 120,38 120,38 Z" fill="var(--accent-gold)"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="ba-card-info">
+                <div class="ba-patient-name">Fathima Nazar <span style="font-size:0.85rem; color:var(--text-muted);">· Calicut</span></div>
+                <div class="ba-patient-plan">Premium Plan</div>
+              </div>
+            </div>
+
+            <!-- Patient 4 -->
+            <div class="ba-card reveal reveal-delay-1">
+              <div class="ba-split-container">
+                <div class="ba-panel ba-panel-before">
+                  <span class="ba-badge ba-badge-before">Before</span>
+                  <svg width="180" height="70" viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,60 C50,45 130,45 170,60" stroke="rgba(255,255,255,0.08)" stroke-width="12" stroke-linecap="round"/>
+                    <!-- Gap in central incisors -->
+                    <rect x="71" y="15" width="14" height="25" rx="3" fill="#808B96" transform="rotate(-3 78 27)"/>
+                    <rect x="94" y="15" width="14" height="25" rx="3" fill="#95A5A6" transform="rotate(3 101 27)"/>
+                    <rect x="56" y="17" width="12" height="22" rx="3" fill="#7F8C8D" transform="rotate(-6 62 28)"/>
+                    <rect x="110" y="17" width="12" height="22" rx="3" fill="#707B7C" transform="rotate(6 116 28)"/>
+                    <path d="M42,20 C42,16 53,16 53,20 L51,37 C51,37 42,37 42,37 Z" fill="#5D6D7E" transform="rotate(-10 47 28)"/>
+                    <path d="M125,20 C125,16 136,16 136,20 L136,37 C136,37 125,37 125,37 Z" fill="#5D6D7E" transform="rotate(10 130 28)"/>
+                  </svg>
+                </div>
+                <div class="vs-circle">VS</div>
+                <div class="ba-panel ba-panel-after">
+                  <span class="ba-badge ba-badge-after">After</span>
+                  <svg width="180" height="70" viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,60 C50,45 130,45 170,60" stroke="rgba(93,191,138,0.12)" stroke-width="12" stroke-linecap="round"/>
+                    <rect x="74" y="13" width="15" height="26" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="90" y="13" width="15" height="26" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="60" y="15" width="13" height="24" rx="3" fill="var(--accent-gold-light)"/>
+                    <rect x="106" y="15" width="13" height="24" rx="3" fill="var(--accent-gold-light)"/>
+                    <path d="M46,18 C46,15 57,15 57,18 L57,38 C57,38 46,38 46,38 Z" fill="var(--accent-gold)"/>
+                    <path d="M120,18 C120,15 131,15 131,18 L131,38 C131,38 120,38 120,38 Z" fill="var(--accent-gold)"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="ba-card-info">
+                <div class="ba-patient-name">Vishnu Prasad <span style="font-size:0.85rem; color:var(--text-muted);">· Thrissur</span></div>
+                <div class="ba-patient-plan">Lite Plan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="pricing-section">
+        <div class="container">
+          <div class="section-header reveal" style="text-align: center; margin: 0 auto 5rem auto;">
+            <span class="badge">Investment</span>
+            <h2 class="section-title">Transparent <span>Treatment Plans</span></h2>
+            <p class="section-subtitle">Premium clear aligner options built for different alignment complexities. No surprise fees.</p>
+          </div>
+
+          <div class="pricing-grid">
+            <!-- Lite Plan -->
+            <div class="glass-card pricing-card reveal">
+              <h3 class="price-title">Lite Plan</h3>
+              <div class="price-tagline">Ideal for minor crowding and spacing</div>
+              <div class="price-value">Price on Consultation</div>
+              <p class="price-note">
+                Pricing varies based on case complexity. Book your free 3D scan for a personalised quote with no obligation.
+              </p>
+              
+              <div class="pricing-divider"></div>
+              
+              <ul class="features-list">
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Up to 14 clear aligner sets</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Free initial 3D digital scan</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Clinical doctor monitoring</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Weekly progress app check-ins</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Free custom retainers</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Interest-free EMI options</li>
+              </ul>
+              
+              <button class="btn-cta btn-book-consult cursor-trigger" style="width: 100%;">Get My Free Quote</button>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="glass-card pricing-card premium-elevated reveal reveal-delay-1">
+              <div class="popular-tag">Most Popular</div>
+              <h3 class="price-title" style="color: var(--accent-gold-light);">Premium Plan</h3>
+              <div class="price-tagline">For moderate to complex teeth alignment</div>
+              <div class="price-value">Price on Consultation</div>
+              <p class="price-note">
+                Pricing varies based on case complexity. Book your free 3D scan for a personalised quote with no obligation.
+              </p>
+              
+              <div class="pricing-divider"></div>
+              
+              <ul class="features-list">
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Unlimited</strong> aligner sets</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>3D scan + AI Smile Simulation</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Monthly in-clinic check-ins</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Complimentary whitening kit</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Free custom retainers</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Priority orthodontic panel support</li>
+                <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dedicated luxury case manager</li>
+              </ul>
+              
+              <button class="btn-cta btn-book-consult cursor-trigger" style="width: 100%;">Get My Free Quote</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="testimonials-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="badge">Reviews</span>
+            <h2 class="section-title">Loved by <span>Our Patients</span></h2>
+            <p class="section-subtitle">Read how our patients across Malabar are smiling brighter with Alignora Aligners.</p>
+          </div>
+
+          <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="glass-card reveal">
+              <div class="stars-row">
+                <!-- 5 stars -->
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-quote">
+                "Alignora transformed my smile and my confidence! The 3D scan at Calicut was so quick, and the premium plan's monthly check-ins kept me on track. Dr. Naufal's team was incredibly professional."
+              </p>
+              <div class="testimonial-author">
+                <div class="avatar">SR</div>
+                <div>
+                  <div class="author-name">Sreelakshmi R.</div>
+                  <div class="author-plan">Kozhikode · Premium Plan</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="glass-card reveal reveal-delay-1">
+              <div class="stars-row">
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-quote">
+                "I was skeptical about clear aligners, but Alignora proved me wrong. Having unlimited aligner sets on the premium plan gave me peace of mind. The weekly app check-ins saved me so many trips."
+              </p>
+              <div class="testimonial-author">
+                <div class="avatar">AM</div>
+                <div>
+                  <div class="author-name">Adithyan Menon</div>
+                  <div class="author-plan">Malappuram · Premium Plan</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="glass-card reveal reveal-delay-2">
+              <div class="stars-row">
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-quote">
+                "Super convenient and virtually invisible! The Lite plan was perfect for my minor crowding. Highly recommend Alignora for anyone looking for modern orthodontic treatment in Kerala."
+              </p>
+              <div class="testimonial-author">
+                <div class="avatar">FN</div>
+                <div>
+                  <div class="author-name">Fathima Nazar</div>
+                  <div class="author-plan">Calicut · Lite Plan</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="glass-card reveal">
+              <div class="stars-row">
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-quote">
+                "The entire experience was seamless. Standard pricing is transparent, and the EMI option made it highly affordable. My teeth are perfectly straight in just 5 months!"
+              </p>
+              <div class="testimonial-author">
+                <div class="avatar">VP</div>
+                <div>
+                  <div class="author-name">Vishnu Prasad</div>
+                  <div class="author-plan">Thrissur · Lite Plan</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 5 -->
+            <div class="glass-card reveal reveal-delay-1">
+              <div class="stars-row">
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-quote">
+                "The complimentary whitening kit and the dedicated case manager made me feel like a VIP patient. The premium smile preview was spot-on, and my results are amazing."
+              </p>
+              <div class="testimonial-author">
+                <div class="avatar">DP</div>
+                <div>
+                  <div class="author-name">Divya Pillai</div>
+                  <div class="author-plan">Kannur · Premium Plan</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 6 -->
+            <div class="glass-card reveal reveal-delay-2">
+              <div class="stars-row">
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-quote">
+                "Very comfortable to wear and easy to clean. I could remove them for eating, which was a huge plus compared to normal braces. Great service from Dr. Elbin!"
+              </p>
+              <div class="testimonial-author">
+                <div class="avatar">MK</div>
+                <div>
+                  <div class="author-name">Muhammed Kabeer</div>
+                  <div class="author-plan">Tirur · Lite Plan</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRESS STRIP -->
+      <div class="press-section">
+        <div class="container press-flex reveal">
+          <span class="press-label">Featured In</span>
+          <div class="press-logos-container">
+            <span class="press-logo-text">Mathrubhumi</span>
+            <span class="press-logo-text">Malayala Manorama</span>
+            <span class="press-logo-text">The Hindu</span>
+            <span class="press-logo-text">Kerala Kaumudi</span>
+            <span class="press-logo-text">Times of India</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOCTOR SECTION -->
+      <section class="doctors-section" id="about-team">
+        <div class="container">
+          <div class="section-header reveal" style="text-align: center; margin: 0 auto 5.5rem auto;">
+            <span class="badge">Our Orthodontists</span>
+            <h2 class="section-title">Meet the Specialist <span>Orthodontists</span></h2>
+            <p class="section-subtitle">Highly qualified and trained experts supervising your teeth movement at every single stage.</p>
+          </div>
+
+          <div class="doctors-grid">
+            <!-- Doctor 1 -->
+            <div class="doctor-card reveal">
+              <!--
+                DEVELOPER INSTRUCTION FOR IMAGE:
+                To replace this placeholder with a real photo of Dr. Naufal, replace the below div with:
+                <img src="path/to/dr-naufal.jpg" alt="Dr. Naufal Thalekkara" style="width:100%; height:320px; object-fit:cover; border-radius:12px; margin-bottom:2rem; border: 1px solid var(--accent-gold);">
+              -->
+              <div class="doctor-img-placeholder">
+                <div class="doctor-dashed-circle">
+                  <svg class="doctor-icon-svg" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </div>
+                <span class="doctor-placeholder-text">Add professional photo here</span>
+              </div>
+              <h3 class="doctor-name">Dr. Naufal Thalekkara</h3>
+              <div class="doctor-title">BDS · MDS Orthodontics & Dentofacial Orthopaedics</div>
+              <p>
+                Highly trained specialist with extensive expertise in clear aligner therapy and clinical dental aesthetics. Known for his warm, patient-first approach to treatment planning.
+              </p>
+            </div>
+
+            <!-- Doctor 2 -->
+            <div class="doctor-card reveal reveal-delay-1">
+              <!--
+                DEVELOPER INSTRUCTION FOR IMAGE:
+                To replace this placeholder with a real photo of Dr. Elbin, replace the below div with:
+                <img src="path/to/dr-elbin.jpg" alt="Dr. Elbin Thomas George" style="width:100%; height:320px; object-fit:cover; border-radius:12px; margin-bottom:2rem; border: 1px solid var(--accent-gold);">
+              -->
+              <div class="doctor-img-placeholder">
+                <div class="doctor-dashed-circle">
+                  <svg class="doctor-icon-svg" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </div>
+                <span class="doctor-placeholder-text">Add professional photo here</span>
+              </div>
+              <h3 class="doctor-name">Dr. Elbin Thomas George</h3>
+              <div class="doctor-title">BDS · MDS Orthodontics & Dentofacial Orthopaedics</div>
+              <p>
+                Accomplished orthodontist specialized in AI-assisted 3D treatment planning. Dedicated to crafting predictable, beautifully designed smile outcomes for every complexity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA BANNER -->
+      <div class="final-cta-section">
+        <div class="cta-banner">
+          <div class="container reveal">
+            <h2 class="section-title">Ready to Transform Your Smile?</h2>
+            <p>Call or message us on <span>+91 6282 256 557</span> to request a consultation in Calicut, Kerala.</p>
+            <button class="btn-cta btn-cta-dark btn-book-consult cursor-trigger">Book Free Scan — It's Free</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         PAGE 2: PATIENT PORTAL PAGE
+         ========================================== -->
+    <section id="page-patient" class="page-section">
+      
+      <!-- HERO -->
+      <div style="background: radial-gradient(circle at 50% 50%, rgba(12,26,48,0.7) 0%, rgba(7,16,31,1) 100%); padding: 6rem 4rem; text-align: center; border-bottom: 1px solid var(--border-gold);">
+        <div class="container reveal">
+          <span class="badge">Patient Portal</span>
+          <h1 class="hero-title" style="margin-bottom: 1.5rem;">Your Smile Journey <br><span>Starts Here</span></h1>
+          <p class="hero-body" style="margin: 0 auto 3rem auto; max-width: 650px;">
+            Explore what to expect during your clear aligner treatment, compare braces, and secure your complimentary consultation.
+          </p>
+          <button class="btn-cta btn-book-consult cursor-trigger">Book My Free Consultation</button>
+        </div>
+      </div>
+
+      <!-- TREATMENT TIMELINE -->
+      <section class="timeline-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="badge">Timeline</span>
+            <h2 class="section-title">Step-by-Step <span>Smile Journey</span></h2>
+            <p class="section-subtitle">What to expect from your initial scan through to your brand new aligned smile.</p>
+          </div>
+
+          <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <!-- Step 1 -->
+            <div class="timeline-step reveal">
+              <div class="timeline-marker">1</div>
+              <div class="timeline-content">
+                <h3>Free Consultation</h3>
+                <p>Discuss your cosmetic goals with our lead specialists, Dr. Naufal Thalekkara and Dr. Elbin Thomas George, at a partner location in Kozhikode or online.</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-step reveal">
+              <div class="timeline-marker">2</div>
+              <div class="timeline-content">
+                <h3>3D Digital Scan</h3>
+                <p>We capture a precise, non-invasive digital model of your jaw in minutes using high-speed intraoral scanners. No messy silicone putty.</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-step reveal">
+              <div class="timeline-marker">3</div>
+              <div class="timeline-content">
+                <h3>AI Smile Simulation</h3>
+                <p>Our orthodontic panel utilizes AI software to create a 3D plan showing the exact path each tooth will take, plus your final predicted outcome.</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-step reveal">
+              <div class="timeline-marker">4</div>
+              <div class="timeline-content">
+                <h3>Receive Custom Aligners</h3>
+                <p>We print your custom transparent tray sets using medical-grade thermoplastic. You will receive the entire kit along with clear wearing instructions.</p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="timeline-step reveal">
+              <div class="timeline-marker">5</div>
+              <div class="timeline-content">
+                <h3>Weekly App Check-ins</h3>
+                <p>Upload quick photos of your teeth through our app. Our clinical orthodontists review your progress remotely, saving you monthly office visits.</p>
+              </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="timeline-step reveal">
+              <div class="timeline-marker">6</div>
+              <div class="timeline-content">
+                <h3>Reveal Your New Smile</h3>
+                <p>Complete your aligner sets and reveal your straight, bright smile. We supply custom clear retainers to hold your final position forever.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPARISON TABLE -->
+      <section class="comparison-section">
+        <div class="container">
+          <div class="section-header reveal" style="text-align: center; margin: 0 auto;">
+            <span class="badge">Comparison</span>
+            <h2 class="section-title">Alignora vs <span>Braces</span></h2>
+            <p class="section-subtitle">See why modern patients choose clear aligners over traditional orthodontic brackets.</p>
+          </div>
+
+          <div class="table-container reveal">
+            <table class="comp-table">
+              <thead>
+                <tr>
+                  <th>Features</th>
+                  <th>Alignora Aligners</th>
+                  <th>Metal Braces</th>
+                  <th>Ceramic Braces</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Virtually Invisible</td>
+                  <td><span class="symbol-yes">✓</span> Yes</td>
+                  <td><span class="symbol-no">✗</span> No</td>
+                  <td><span class="symbol-maybe">~</span> Partial</td>
+                </tr>
+                <tr>
+                  <td>Removable for Eating</td>
+                  <td><span class="symbol-yes">✓</span> Yes</td>
+                  <td><span class="symbol-no">✗</span> No</td>
+                  <td><span class="symbol-no">✗</span> No</td>
+                </tr>
+                <tr>
+                  <td>No Food Restrictions</td>
+                  <td><span class="symbol-yes">✓</span> Yes</td>
+                  <td><span class="symbol-no">✗</span> No</td>
+                  <td><span class="symbol-no">✗</span> No</td>
+                </tr>
+                <tr>
+                  <td>Comfortable</td>
+                  <td><span class="symbol-yes">✓</span> Yes (Smooth)</td>
+                  <td><span class="symbol-no">✗</span> No (Sharp metal)</td>
+                  <td><span class="symbol-maybe">~</span> Moderate</td>
+                </tr>
+                <tr>
+                  <td>AI Planning</td>
+                  <td><span class="symbol-yes">✓</span> Yes</td>
+                  <td><span class="symbol-no">✗</span> No</td>
+                  <td><span class="symbol-no">✗</span> No</td>
+                </tr>
+                <tr>
+                  <td>Doctor Monitored</td>
+                  <td><span class="symbol-yes">✓</span> Yes</td>
+                  <td><span class="symbol-yes">✓</span> Yes</td>
+                  <td><span class="symbol-yes">✓</span> Yes</td>
+                </tr>
+                <tr>
+                  <td>Easy to Clean</td>
+                  <td><span class="symbol-yes">✓</span> Yes (Remove & brush)</td>
+                  <td><span class="symbol-no">✗</span> Complex</td>
+                  <td><span class="symbol-no">✗</span> Complex</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ ACCORDION -->
+      <section class="faq-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="badge">FAQ</span>
+            <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+            <p class="section-subtitle">Find fast answers to common questions about treatment, locations, and pricing.</p>
+          </div>
+
+          <div class="faq-container">
+            <!-- FAQ 1 -->
+            <div class="faq-item reveal">
+              <button class="faq-trigger cursor-trigger">
+                Is the treatment with Alignora aligners painful?
+                <span class="faq-icon-wrapper"></span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-content-inner">
+                  Alignora clear aligners are designed for comfort. While you may feel a mild pressure or snugness during the first 1-2 days of a new aligner set, it is virtually pain-free compared to traditional metal braces. This pressure simply means your teeth are moving into their planned positions.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item reveal">
+              <button class="faq-trigger cursor-trigger">
+                How long does the aligner treatment take?
+                <span class="faq-icon-wrapper"></span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-content-inner">
+                  The average treatment time is around 6 months, though this depends entirely on case complexity. Minor spacing or crowding (Lite plan) can take as little as 4-5 months, while more complex alignments (Premium plan) may take 9-12 months.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item reveal">
+              <button class="faq-trigger cursor-trigger">
+                Can I eat and drink normally during treatment?
+                <span class="faq-icon-wrapper"></span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-content-inner">
+                  Yes! One of the biggest benefits of Alignora aligners is that they are fully removable. You should remove them before eating or drinking anything other than cool water. This means no food restrictions, and you can brush and floss normally before putting them back in.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item reveal">
+              <button class="faq-trigger cursor-trigger">
+                Are clear aligners suitable for teenagers?
+                <span class="faq-icon-wrapper"></span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-content-inner">
+                  Yes, clear aligners are an excellent option for teenagers whose permanent teeth have fully erupted. Our specialist orthodontists (Dr. Naufal and Dr. Elbin) will assess teen suitability during the initial 3D digital scan.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item reveal">
+              <button class="faq-trigger cursor-trigger">
+                Do I need to wear retainers after my treatment?
+                <span class="faq-icon-wrapper"></span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-content-inner">
+                  Yes, wearing retainers is essential to keep your teeth in their new positions. Alignora includes free retainers with both our Lite and Premium plans to ensure your beautiful new smile lasts a lifetime.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item reveal">
+              <button class="faq-trigger cursor-trigger">
+                What EMI and financing options do you offer?
+                <span class="faq-icon-wrapper"></span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-content-inner">
+                  We offer flexible, interest-free EMI options starting at very affordable monthly rates. During your consultation, our team will provide a customized financing plan that fits your budget.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="faq-item reveal">
+              <button class="faq-trigger cursor-trigger">
+                Where is the Alignora clinic located in Calicut?
+                <span class="faq-icon-wrapper"></span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-content-inner">
+                  Our main scan center is located in the heart of Calicut, Kozhikode, Kerala. In addition, we partner with over 50+ clinics across Kerala for convenient check-ins and scans. Call us at +91 6282 256 557 to find the partner clinic closest to you.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING FORM -->
+      <section class="form-section" id="booking-form-section">
+        <div class="container">
+          <div class="section-header reveal" style="text-align: center; margin: 0 auto 4rem auto;">
+            <span class="badge">Appointments</span>
+            <h2 class="section-title">Book Your <span>Free Scan</span></h2>
+            <p class="section-subtitle">Take the first step to your perfect smile. Fill out the form to schedule your digital scan.</p>
+          </div>
+
+          <div class="glass-card form-wrapper reveal">
+            <form class="booking-form" id="patient-booking-form">
+              <div class="form-group-row">
+                <div class="form-control">
+                  <label for="patient-name">Full Name</label>
+                  <input type="text" id="patient-name" class="form-input cursor-trigger" placeholder="Meenakshi Nair" required>
+                </div>
+                <div class="form-control">
+                  <label for="patient-phone">Phone Number</label>
+                  <input type="tel" id="patient-phone" class="form-input cursor-trigger" placeholder="+91 98765 43210" required>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <div class="form-control">
+                  <label for="patient-city">City</label>
+                  <input type="text" id="patient-city" class="form-input cursor-trigger" placeholder="Calicut" required>
+                </div>
+                <div class="form-control">
+                  <label for="patient-concern">Main Concern</label>
+                  <select id="patient-concern" class="form-select cursor-trigger" required>
+                    <option value="" disabled selected>Select concern</option>
+                    <option value="crowding">Teeth Crowding</option>
+                    <option value="spacing">Spacing / Gaps</option>
+                    <option value="overbite">Overbite / Underbite</option>
+                    <option value="crookedness">Crooked Teeth</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-button-container">
+                <button type="submit" class="btn-cta cursor-trigger">Schedule Free 3D Scan</button>
+                <div class="form-phone-sub">Or call us directly at <a href="tel:+916282256557" class="cursor-trigger">+91 6282 256 557</a></div>
+              </div>
+
+              <div class="form-message" id="patient-form-msg"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+
+    <!-- ==========================================
+         PAGE 3: DOCTOR PARTNERSHIP PAGE
+         ========================================== -->
+    <section id="page-doctor" class="page-section">
+      
+      <!-- HERO (GREEN ACCENTS) -->
+      <div style="background: radial-gradient(circle at 50% 50%, rgba(9,26,15,0.7) 0%, rgba(7,16,31,1) 100%); padding: 6rem 4rem; text-align: center; border-bottom: 1px solid var(--border-green);">
+        <div class="container reveal">
+          <span class="badge" style="border-color: var(--accent-green); color: var(--accent-green); background: rgba(93, 191, 138, 0.05);">Doctor Partnership Programme</span>
+          <h1 class="hero-title" style="margin-bottom: 1.5rem;">Grow Your Practice <br><span style="color: var(--accent-green);">with Alignora</span></h1>
+          <p class="hero-body" style="margin: 0 auto 3rem auto; max-width: 650px; color: rgba(255, 255, 255, 0.6);">
+            Partner with Kerala's premier clear aligner network. Offer world-class, AI-planned orthodontic treatments in your own dental clinic.
+          </p>
+          <button class="btn-cta btn-doctor-apply cursor-trigger" style="background: var(--accent-green); border-color: var(--accent-green);">Apply to Partner</button>
+        </div>
+      </div>
+
+      <!-- BENEFITS GRID -->
+      <section class="benefits-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="badge">Benefits</span>
+            <h2 class="section-title">Why Partner with <span style="color: var(--accent-green);">Alignora</span></h2>
+            <p class="section-subtitle">Unlock advanced treatment models and elevate patient satisfaction in your dental clinic.</p>
+          </div>
+
+          <div class="why-grid">
+            <!-- Benefit 1 -->
+            <div class="glass-card why-card reveal" style="border-color: var(--border-green);">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24" style="stroke: var(--accent-green);"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3>Grow Your Revenue</h3>
+              <p>Increase your practice's monthly income by offering high-margin clear aligner treatments to your patients.</p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="glass-card why-card reveal reveal-delay-1" style="border-color: var(--border-green);">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24" style="stroke: var(--accent-green);"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/></svg>
+              </div>
+              <h3>Full Training Provided</h3>
+              <p>Receive comprehensive clinical training, certification courses, and clear aligner mentoring from our specialists.</p>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="glass-card why-card reveal reveal-delay-2" style="border-color: var(--border-green);">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24" style="stroke: var(--accent-green);"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <h3>Co-branded Marketing</h3>
+              <p>Benefit from Alignora's strong regional marketing campaigns to drive high-intent aligner patients directly to your door.</p>
+            </div>
+
+            <!-- Benefit 4 -->
+            <div class="glass-card why-card reveal" style="border-color: var(--border-green);">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24" style="stroke: var(--accent-green);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="21" x2="9" y2="9"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+              </div>
+              <h3>AI-Powered Dashboard</h3>
+              <p>Easily submit intraoral scans, review dental models, approve plans, and track case progress in a centralized portal.</p>
+            </div>
+
+            <!-- Benefit 5 -->
+            <div class="glass-card why-card reveal reveal-delay-1" style="border-color: var(--border-green);">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24" style="stroke: var(--accent-green);"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <h3>Dedicated Support</h3>
+              <p>Collaborate directly with our master orthodontists on prescription inputs, staging, and aligner tracking.</p>
+            </div>
+
+            <!-- Benefit 6 -->
+            <div class="glass-card why-card reveal reveal-delay-2" style="border-color: var(--border-green);">
+              <div class="why-card-icon">
+                <svg viewBox="0 0 24 24" style="stroke: var(--accent-green);"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              </div>
+              <h3>Certification & Prestige</h3>
+              <p>Align your dental clinic with a state-of-the-art clear aligner brand known for safety, accuracy, and luxury.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ONBOARDING STEPS -->
+      <section class="onboarding-section" style="background-color: var(--bg-secondary);">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="badge" style="border-color: var(--accent-green); color: var(--accent-green); background: rgba(93, 191, 138, 0.05);">Partner Process</span>
+            <h2 class="section-title">Three Steps to <span>Get Started</span></h2>
+            <p class="section-subtitle">How our orthodontic integration works for new clinic partners.</p>
+          </div>
+
+          <div class="onboarding-grid">
+            <div class="onboard-card reveal">
+              <div class="onboard-circle">1</div>
+              <h3 class="onboard-title">Apply Online</h3>
+              <p>Submit your clinic details through our partnership portal. Our team will coordinate a quick alignment call.</p>
+            </div>
+
+            <div class="onboard-card reveal reveal-delay-1">
+              <div class="onboard-circle">2</div>
+              <h3 class="onboard-title">Get Certified</h3>
+              <p>Complete our online/in-person training modules covering intraoral scanning, prescription inputs, and dashboard tracking.</p>
+            </div>
+
+            <div class="onboard-card reveal reveal-delay-2">
+              <div class="onboard-circle">3</div>
+              <h3 class="onboard-title">Start Treating</h3>
+              <p>Receive your certified plaque, start submitting patient cases via the portal, and scale your clear aligner practice.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARTNER DOCTOR TESTIMONIALS -->
+      <section class="partner-testimonials-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="badge" style="border-color: var(--accent-green); color: var(--accent-green); background: rgba(93, 191, 138, 0.05);">Doctor Testimonials</span>
+            <h2 class="section-title">What Our <span>Partners Say</span></h2>
+            <p class="section-subtitle">Feedback from licensed orthodontists and dentists partnering with Alignora across Kerala.</p>
+          </div>
+
+          <div class="testimonials-grid">
+            <!-- Doc Review 1 -->
+            <div class="glass-card reveal" style="border-color: var(--border-green);">
+              <div class="stars-row">
+                <!-- 5 Green Stars -->
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-quote">
+                "Partnering with Alignora has been a game-changer for my practice. The AI dashboard is extremely intuitive, and the treatment plan approvals are fast and highly accurate."
+              </p>
+              <div class="testimonial-author">
+                <div class="avatar" style="border-color:var(--accent-green); color:var(--accent-green);">RN</div>
+                <div>
+                  <div class="author-name">Dr. Rahul Nair, MDS</div>
+                  <div class="author-plan" style="color: var(--accent-green);">Thrissur Clinic Partner</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doc Review 2 -->
+            <div class="glass-card reveal reveal-delay-1" style="border-color: var(--border-green);">
+              <div class="stars-row">
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-quote">
+                "Alignora's support team and orthodontists are highly collaborative. The patient onboarding is seamless, and my patients love their treatment results. Highly recommended."
+              </p>
+              <div class="testimonial-author">
+                <div class="avatar" style="border-color:var(--accent-green); color:var(--accent-green);">SA</div>
+                <div>
+                  <div class="author-name">Dr. Sreeja Anand, MDS</div>
+                  <div class="author-plan" style="color: var(--accent-green);">Kochi Clinic Partner</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doc Review 3 -->
+            <div class="glass-card reveal reveal-delay-2" style="border-color: var(--border-green);">
+              <div class="stars-row">
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="star-svg" viewBox="0 0 24 24" style="fill: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-quote">
+                "The certification training was comprehensive, and the co-branded marketing has brought a steady stream of premium patients to my clinic. Truly a win-win partnership."
+              </p>
+              <div class="testimonial-author">
+                <div class="avatar" style="border-color:var(--accent-green); color:var(--accent-green);">PK</div>
+                <div>
+                  <div class="author-name">Dr. Pradeep Kumar, MDS</div>
+                  <div class="author-plan" style="color: var(--accent-green);">Kozhikode Clinic Partner</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARTNERSHIP FORM -->
+      <section class="form-section text-center" id="doctor-apply-section">
+        <div class="container">
+          <div class="section-header reveal" style="text-align: center; margin: 0 auto 4rem auto;">
+            <span class="badge" style="border-color: var(--accent-green); color: var(--accent-green); background: rgba(93, 191, 138, 0.05);">Registration</span>
+            <h2 class="section-title">Partner <span>Application Form</span></h2>
+            <p class="section-subtitle">Submit your practice details and join Kerala's premier clear aligner network.</p>
+          </div>
+
+          <div class="glass-card form-wrapper reveal" style="border-color: var(--border-green);">
+            <form class="booking-form" id="doctor-partner-form">
+              <div class="form-group-row">
+                <div class="form-control">
+                  <label for="doc-name">Full Name</label>
+                  <input type="text" id="doc-name" class="form-input cursor-trigger" placeholder="Dr. Rahul Nair" required>
+                </div>
+                <div class="form-control">
+                  <label for="doc-clinic">Clinic Name</label>
+                  <input type="text" id="doc-clinic" class="form-input cursor-trigger" placeholder="Nair Dental Clinic" required>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <div class="form-control">
+                  <label for="doc-city">City</label>
+                  <input type="text" id="doc-city" class="form-input cursor-trigger" placeholder="Thrissur" required>
+                </div>
+                <div class="form-control">
+                  <label for="doc-phone">Phone Number</label>
+                  <input type="tel" id="doc-phone" class="form-input cursor-trigger" placeholder="+91 98765 43210" required>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <div class="form-control">
+                  <label for="doc-email">Email Address</label>
+                  <input type="email" id="doc-email" class="form-input cursor-trigger" placeholder="rahul@example.com" required>
+                </div>
+                <div class="form-control">
+                  <label for="doc-exp">Years of Experience</label>
+                  <select id="doc-exp" class="form-select cursor-trigger" required>
+                    <option value="" disabled selected>Select experience</option>
+                    <option value="1-3">1 - 3 Years</option>
+                    <option value="4-7">4 - 7 Years</option>
+                    <option value="8-12">8 - 12 Years</option>
+                    <option value="12+">12+ Years</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-button-container">
+                <button type="submit" class="btn-cta cursor-trigger" style="background: var(--accent-green); border-color: var(--accent-green);">Submit Application</button>
+                <div class="form-phone-sub">Or contact our onboarding desk at <a href="tel:+916282256557" class="cursor-trigger">+91 6282 256 557</a></div>
+              </div>
+
+              <div class="form-message" id="doctor-form-msg"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       F. GLOBAL COMPONENT: FOOTER
+       ========================================== -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      
+      <div class="footer-col-brand">
+        <div class="logo-container">
+          <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,65 C20,35 33,20 50,20 C67,20 80,35 80,65 C70,60 62,45 50,45 C38,45 30,60 20,65 Z" stroke="var(--accent-gold-light)" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M50,28 C46,24 40,24 38,28 C36,32 36,42 50,56 C64,42 64,32 62,28 C60,24 54,24 50,28 Z" fill="var(--accent-gold)" opacity="0.9"/>
+          </svg>
+          <span class="wordmark">Align<span>ora</span></span>
+        </div>
+        <p><strong>Smile Smarter. Live Brighter.</strong></p>
+        <p>Alignora Aligners is Calicut's premier digital orthodontic network, delivering clinical excellence and luxury smile makeovers since 2025.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon cursor-trigger">
+            <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+          <a href="#" class="social-icon cursor-trigger">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon cursor-trigger">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+          <a href="#" class="social-icon cursor-trigger">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-h4">Treatments</h4>
+        <ul class="footer-links">
+          <li><a href="#page-patient" class="footer-link cursor-trigger" data-nav="patient">Clear Aligners</a></li>
+          <li><a href="#page-patient" class="footer-link cursor-trigger" data-nav="patient">3D Teeth Scanning</a></li>
+          <li><a href="#page-patient" class="footer-link cursor-trigger" data-nav="patient">Orthodontic Staging</a></li>
+          <li><a href="#page-patient" class="footer-link cursor-trigger" data-nav="patient">Post-Treatment Retainers</a></li>
+          <li><a href="#page-patient" class="footer-link cursor-trigger" data-nav="patient">Smile Makeovers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-h4">Company</h4>
+        <ul class="footer-links">
+          <li><a href="#about-team" class="footer-link cursor-trigger" data-nav="home" data-scroll="about-team">Our Specialists</a></li>
+          <li><a href="#why-alignora" class="footer-link cursor-trigger" data-nav="home" data-scroll="why-alignora">Why Choose Us</a></li>
+          <li><a href="#page-doctor" class="footer-link cursor-trigger" data-nav="doctor">Doctor Network</a></li>
+          <li><a href="#" class="footer-link cursor-trigger" data-nav="home" data-scroll="page-home">Clinic Locations</a></li>
+          <li><a href="#" class="footer-link cursor-trigger">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-h4">Contact</h4>
+        <div class="footer-contact-item">
+          <strong>Calicut Scan Center</strong><br>
+          Beach Road, Calicut,<br>
+          Kozhikode, Kerala - 673001
+        </div>
+        <div class="footer-contact-item">
+          Email: info@alignora.com<br>
+          WhatsApp: +91 6282 256 557
+          <br>
+          <a href="tel:+916282256557" class="footer-phone-link cursor-trigger">+91 6282 256 557</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2025 Alignora Aligners. All rights reserved. Calicut, Kerala.</div>
+      <div style="display:flex; align-items:center; gap:5px;">Crafted with precision in Kerala <span style="font-size: 1.15rem;">🌴</span></div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       G. GLOBAL COMPONENT: WHATSAPP FLOATING CTA
+       ========================================== -->
+  <a href="https://wa.me/916282256557" target="_blank" class="whatsapp-float cursor-trigger" aria-label="Chat on WhatsApp">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ==========================================
+       H. GLOBAL COMPONENT: CUSTOM CURSOR WRAPPER
+       ========================================== -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
+  <!-- ==========================================
+       I. GLOBAL SCRIPTS (VANILLA JS)
+       ========================================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      // ==========================================
+      // 1. ANIMATED LOADING SCREEN DISMISSAL
+      // ==========================================
+      const loader = document.getElementById("loader-screen");
+      setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 600);
+      }, 1800);
+
+      // ==========================================
+      // 2. STICKY NAVIGATION SCROLL EFFECT
+      // ==========================================
+      const nav = document.getElementById("sticky-nav");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 40) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      // ==========================================
+      // 3. VERTICAL SCROLL PROGRESS TRACKER
+      // ==========================================
+      const progressBar = document.getElementById("scroll-progress-bar");
+      
+      function updateScrollProgress() {
+        // Calculate based on active page height
+        const activePage = document.querySelector(".page-section.active");
+        if (!activePage) return;
+        
+        const scrollTop = window.scrollY;
+        const docHeight = activePage.scrollHeight;
+        const winHeight = window.innerHeight;
+        const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+        
+        progressBar.style.width = Math.min(100, Math.max(0, scrollPercent)) + "%";
+      }
+      
+      window.addEventListener("scroll", updateScrollProgress);
+      window.addEventListener("resize", updateScrollProgress);
+
+      // ==========================================
+      // 4. INTERACTIVE CUSTOM CURSOR
+      // ==========================================
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorOutline = document.getElementById("cursor-outline");
+      let mouseX = 0, mouseY = 0; // Target coordinates
+      let outlineX = 0, outlineY = 0; // Lagging outline coordinates
+
+      // Update target coordinates
+      window.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Instant position for the dot
+        if (cursorDot) {
+          cursorDot.style.left = mouseX + "px";
+          cursorDot.style.top = mouseY + "px";
+        }
+      });
+
+      // Interpolation (lerp) loop for smooth lagging outline
+      function updateCursor() {
+        const xp = 0.16; // Lerp factor
+        outlineX += (mouseX - outlineX) * xp;
+        outlineY += (mouseY - outlineY) * xp;
+
+        if (cursorOutline) {
+          cursorOutline.style.left = outlineX + "px";
+          cursorOutline.style.top = outlineY + "px";
+        }
+        requestAnimationFrame(updateCursor);
+      }
+      requestAnimationFrame(updateCursor);
+
+      // Add hovered states
+      const cursorTriggers = document.querySelectorAll(".cursor-trigger");
+      cursorTriggers.forEach((trigger) => {
+        trigger.addEventListener("mouseenter", () => {
+          cursorOutline.classList.add("hovered");
+        });
+        trigger.addEventListener("mouseleave", () => {
+          cursorOutline.classList.remove("hovered");
+        });
+      });
+
+      // Dynamic hover binds for dynamically rendered or updated triggers
+      function addCursorHover(element) {
+        element.addEventListener("mouseenter", () => cursorOutline.classList.add("hovered"));
+        element.addEventListener("mouseleave", () => cursorOutline.classList.remove("hovered"));
+      }
+      
+      // Bind to all default native inputs, buttons, and textareas
+      document.querySelectorAll("button, a, input, select, textarea, .faq-trigger").forEach(addCursorHover);
+
+      // Hide custom cursor on touch screens to prevent glitches
+      window.addEventListener("touchstart", () => {
+        if (cursorDot) cursorDot.style.display = "none";
+        if (cursorOutline) cursorOutline.style.display = "none";
+      }, { once: true });
+
+      // ==========================================
+      // 5. HERO BACKGROUND: FLOATING CANVAS PARTICLES
+      // ==========================================
+      const canvas = document.getElementById("particles-canvas");
+      const ctx = canvas.getContext("2d");
+      let particles = [];
+      let canvasWidth = 0;
+      let canvasHeight = 0;
+      let animationFrameId = null;
+      let isHeroActive = true;
+
+      function resizeCanvas() {
+        canvasWidth = canvas.parentElement.clientWidth;
+        canvasHeight = canvas.parentElement.clientHeight;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvasWidth;
+          this.y = Math.random() * canvasHeight + canvasHeight; // Spawn below screen
+          this.size = Math.random() * 2 + 1; // 1px to 3px size
+          this.speedY = -(Math.random() * 0.4 + 0.15); // Slow upward speed
+          this.speedX = Math.sin(Math.random() * Math.PI) * 0.15; // Slow sway
+          this.alpha = Math.random() * 0.4 + 0.15;
+          this.decay = Math.random() * 0.0002;
+        }
+
+        update() {
+          this.y += this.speedY;
+          this.x += this.speedX + Math.sin(window.scrollY * 0.002 + this.y * 0.01) * 0.05; // sway reaction
+
+          // Reset when particle floats off top
+          if (this.y < 0) {
+            this.y = canvasHeight + Math.random() * 20;
+            this.x = Math.random() * canvasWidth;
+            this.speedY = -(Math.random() * 0.4 + 0.15);
+            this.alpha = Math.random() * 0.4 + 0.15;
+          }
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(200, 169, 110, ${this.alpha})`;
+          ctx.shadowBlur = 4;
+          ctx.shadowColor = "#DFC08A";
+          ctx.fill();
+          ctx.shadowBlur = 0; // Reset shadow
+        }
+      }
+
+      function initParticles() {
+        particles = [];
+        const count = Math.min(60, Math.floor(canvasWidth / 25));
+        for (let i = 0; i < count; i++) {
+          const p = new Particle();
+          p.y = Math.random() * canvasHeight; // Initial scatter
+          particles.push(p);
+        }
+      }
+      initParticles();
+
+      function animateParticles() {
+        if (!isHeroActive) return;
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        particles.forEach((p) => {
+          p.update();
+          p.draw();
+        });
+        animationFrameId = requestAnimationFrame(animateParticles);
+      }
+
+      // Check if user prefers reduced motion
+      const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (!motionQuery.matches) {
+        animateParticles();
+      }
+
+      // ==========================================
+      // 6. VANILLA JS PAGE SWITCHER (ROUTER)
+      // ==========================================
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const pages = document.querySelectorAll(".page-section");
+      const tabSlider = document.getElementById("tab-slider");
+      const body = document.body;
+
+      function updateSlider(activeBtn) {
+        if (!tabSlider || !activeBtn) return;
+        const rect = activeBtn.getBoundingClientRect();
+        const parentRect = activeBtn.parentElement.getBoundingClientRect();
+        const leftOffset = rect.left - parentRect.left;
+        tabSlider.style.transform = `translateX(${leftOffset}px)`;
+        tabSlider.style.width = rect.width + "px";
+      }
+
+      // Initialize slider position
+      setTimeout(() => {
+        const activeTab = document.querySelector(".tab-btn.active");
+        updateSlider(activeTab);
+      }, 100);
+
+      function switchPage(pageId) {
+        // Toggle theme class for green accent on Doctor page
+        if (pageId === "doctor") {
+          body.classList.add("theme-green");
+        } else {
+          body.classList.remove("theme-green");
+        }
+
+        // Smooth fade transition
+        pages.forEach((page) => {
+          page.style.opacity = "0";
+          setTimeout(() => {
+            page.classList.remove("active");
+            if (page.id === `page-${pageId}`) {
+              page.classList.add("active");
+              
+              // Reset scroll position to top instantly before rendering
+              window.scrollTo({ top: 0, behavior: "instant" });
+              
+              // Fade page back in
+              setTimeout(() => {
+                page.style.opacity = "1";
+                updateScrollProgress();
+                
+                // Re-evaluate scroll reveals for the new page layout
+                document.querySelectorAll(`#page-${pageId} .reveal`).forEach(el => {
+                  const r = el.getBoundingClientRect();
+                  if (r.top < window.innerHeight) {
+                    el.classList.add("revealed");
+                  }
+                });
+              }, 50);
+            }
+          }, 300);
+        });
+
+        // Update active tab buttons
+        tabBtns.forEach((btn) => {
+          if (btn.getAttribute("data-page") === pageId) {
+            btn.classList.add("active");
+            updateSlider(btn);
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        // Update active nav links
+        navLinks.forEach((link) => {
+          if (link.getAttribute("data-nav") === pageId) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+
+        // Pause particles if not on Home page to save performance
+        if (pageId === "home") {
+          isHeroActive = true;
+          if (!animationFrameId && !motionQuery.matches) {
+            animateParticles();
+          }
+        } else {
+          isHeroActive = false;
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+          }
+        }
+      }
+
+      // Switcher Tab button clicks
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const pageId = btn.getAttribute("data-page");
+          switchPage(pageId);
+        });
+      });
+
+      // Sticky navbar navigation clicks
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetPage = link.getAttribute("data-nav");
+          const targetScrollSection = link.getAttribute("data-scroll");
+          
+          switchPage(targetPage);
+
+          // Close mobile hamburger dropdown if open
+          document.getElementById("nav-links").classList.remove("active");
+
+          // If scrolling within target page
+          if (targetScrollSection) {
+            setTimeout(() => {
+              const el = document.getElementById(targetScrollSection);
+              if (el) {
+                const navHeight = 150; // offset for nav + switcher
+                const targetPos = el.getBoundingClientRect().top + window.scrollY - navHeight;
+                window.scrollTo({ top: targetPos, behavior: "smooth" });
+              }
+            }, 400); // Wait for page switch transition to finish
+          }
+        });
+      });
+
+      // ==========================================
+      // 7. INTERNAL CTA BUTTON PAGE SWITCH LINKERS
+      // ==========================================
+      // Navbar CTA - Book Free Scan (Directs to Patient Portal form)
+      document.getElementById("nav-cta-btn").addEventListener("click", () => {
+        switchPage("patient");
+        setTimeout(() => {
+          const el = document.getElementById("booking-form-section");
+          if (el) {
+            const targetPos = el.getBoundingClientRect().top + window.scrollY - 150;
+            window.scrollTo({ top: targetPos, behavior: "smooth" });
+          }
+        }, 400);
+      });
+
+      // Hero Outlined CTA - See Patient Results (Scrolls to Home Transformations)
+      document.getElementById("hero-results-btn").addEventListener("click", () => {
+        const el = document.querySelector(".gallery-section");
+        if (el) {
+          const targetPos = el.getBoundingClientRect().top + window.scrollY - 150;
+          window.scrollTo({ top: targetPos, behavior: "smooth" });
+        }
+      });
+
+      // All 'Book Free Consultation' buttons -> Patient Portal form
+      document.querySelectorAll(".btn-book-consult").forEach(btn => {
+        btn.addEventListener("click", () => {
+          switchPage("patient");
+          setTimeout(() => {
+            const el = document.getElementById("booking-form-section");
+            if (el) {
+              const targetPos = el.getBoundingClientRect().top + window.scrollY - 150;
+              window.scrollTo({ top: targetPos, behavior: "smooth" });
+            }
+          }, 400);
+        });
+      });
+
+      // Doctor Partnership CTA -> Doctor form
+      document.querySelectorAll(".btn-doctor-apply").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const el = document.getElementById("doctor-apply-section");
+          if (el) {
+            const targetPos = el.getBoundingClientRect().top + window.scrollY - 150;
+            window.scrollTo({ top: targetPos, behavior: "smooth" });
+          }
+        });
+      });
+
+      // Brand Logo header click -> switches to Home Top
+      document.querySelector(".logo-container").addEventListener("click", (e) => {
+        e.preventDefault();
+        switchPage("home");
+      });
+
+      // ==========================================
+      // 8. INTERSECTION OBSERVER FOR SCROLL REVEALS
+      // ==========================================
+      const revealElements = document.querySelectorAll(".reveal");
+      
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target); // Reveal only once
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+      });
+
+      revealElements.forEach((el) => {
+        revealObserver.observe(el);
+      });
+
+      // ==========================================
+      // 9. ANIMATED STATS COUNTER ON SCROLL INTO VIEW
+      // ==========================================
+      const counterElements = document.querySelectorAll(".stat-num, .float-card-stat");
+      
+      const countUp = (element) => {
+        const target = parseInt(element.getAttribute("data-target"));
+        let count = 0;
+        const duration = 1500; // 1.5 seconds duration
+        const stepTime = Math.max(Math.floor(duration / target), 10);
+        
+        const timer = setInterval(() => {
+          count += Math.ceil(target / (duration / stepTime));
+          if (count >= target) {
+            clearInterval(timer);
+            count = target;
+          }
+          
+          // Formats display suffixes (%, +, mo)
+          if (element.classList.contains("float-card-stat")) {
+            element.textContent = count + "+";
+          } else {
+            const label = element.nextElementSibling.textContent.toLowerCase();
+            if (label.includes("satisfaction")) {
+              element.textContent = count + "%";
+            } else if (label.includes("treatment")) {
+              element.textContent = count + " mo";
+            } else {
+              element.textContent = count + "+";
+            }
+          }
+        }, stepTime);
+      };
+
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            countUp(entry.target);
+            observer.unobserve(entry.target); // Counter runs once
+          }
+        });
+      }, {
+        threshold: 0.8
+      });
+
+      counterElements.forEach((el) => {
+        counterObserver.observe(el);
+      });
+
+      // ==========================================
+      // 10. FAQ ACCORDION TRANSITIONS (SMOOTH MAX-HEIGHT)
+      // ==========================================
+      const faqTriggers = document.querySelectorAll(".faq-trigger");
+      
+      faqTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          const faqItem = trigger.parentElement;
+          const faqContent = trigger.nextElementSibling;
+          const isOpen = faqItem.classList.contains("open");
+
+          // Close all FAQ items
+          document.querySelectorAll(".faq-item").forEach((item) => {
+            item.classList.remove("open");
+            item.querySelector(".faq-content").style.maxHeight = "0";
+          });
+
+          // Toggle clicked item
+          if (!isOpen) {
+            faqItem.classList.add("open");
+            faqContent.style.maxHeight = faqContent.scrollHeight + "px";
+          }
+        });
+      });
+
+      // ==========================================
+      // 11. LUXURY APP FORM VALIDATIONS (INTERACTIVE SUBMIT)
+      // ==========================================
+      // Patient Booking Form
+      const patientForm = document.getElementById("patient-booking-form");
+      const patientMsg = document.getElementById("patient-form-msg");
+
+      patientForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const btn = patientForm.querySelector("button[type='submit']");
+        btn.textContent = "Scheduling your scan...";
+        btn.style.opacity = "0.7";
+        btn.disabled = true;
+
+        // Simulate secure clinic API delay
+        setTimeout(() => {
+          btn.textContent = "Scan Scheduled";
+          btn.style.background = "var(--accent-green)";
+          btn.style.borderColor = "var(--accent-green)";
+          btn.style.color = "#07101F";
+
+          patientMsg.className = "form-message success";
+          patientMsg.innerHTML = `
+            <strong>Scan Requested Successfully!</strong><br>
+            Thank you, ${document.getElementById("patient-name").value}. Our team will contact you on ${document.getElementById("patient-phone").value} shortly to confirm your booking in Calicut.
+          `;
+          patientForm.reset();
+        }, 1800);
+      });
+
+      // Doctor Partnership Form
+      const doctorForm = document.getElementById("doctor-partner-form");
+      const doctorMsg = document.getElementById("doctor-form-msg");
+
+      doctorForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const btn = doctorForm.querySelector("button[type='submit']");
+        btn.textContent = "Submitting application...";
+        btn.style.opacity = "0.7";
+        btn.disabled = true;
+
+        setTimeout(() => {
+          btn.textContent = "Application Submitted";
+          btn.style.background = "#FFFFFF";
+          btn.style.borderColor = "#FFFFFF";
+          btn.style.color = "var(--bg-primary)";
+
+          doctorMsg.className = "form-message success";
+          doctorMsg.style.borderColor = "var(--accent-green)";
+          doctorMsg.style.color = "#a4f0c5";
+          doctorMsg.innerHTML = `
+            <strong>Application Received!</strong><br>
+            Dr. ${document.getElementById("doc-name").value}, your application for ${document.getElementById("doc-clinic").value} has been logged. Our orthodontic panel manager will reach out within 24 business hours.
+          `;
+          doctorForm.reset();
+        }, 1800);
+      });
+
+      // ==========================================
+      // 12. MOBILE HAMBURGER MENU DROPDOWN TOGGLE
+      // ==========================================
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinksDropdown = document.getElementById("nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinksDropdown.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+        
+        // Rotate lines in hamburger
+        const spans = menuToggle.querySelectorAll("span");
+        if (menuToggle.classList.contains("active")) {
+          spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
+          spans[1].style.opacity = "0";
+          spans[2].style.transform = "rotate(-45deg) translate(5px, -6px)";
+        } else {
+          spans[0].style.transform = "none";
+          spans[1].style.opacity = "1";
+          spans[2].style.transform = "none";
+        }
+      });
+      
+    });
+  </script>
+</body>
+</html>
